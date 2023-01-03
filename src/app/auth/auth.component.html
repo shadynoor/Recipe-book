@@ -1,0 +1,27 @@
+<div class="container mt-5">
+
+
+  <div class="spinn mt-5 d-flex justify-content-center align-items-center" *ngIf="isLoading">
+    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="alert alert-danger w-50 m-auto my-3" *ngIf="error && !isLoading" >
+    {{ error }}
+  </div>
+
+
+  <div class="row" *ngIf="!isLoading">
+    <div class="col-12">
+      <form class="mb-3 w-50 m-auto" [formGroup]="authForm" (ngSubmit)="authSubmit()">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" formControlName="email" name="email" id="email" placeholder="abc@mail.com">
+
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password" name="password" id="password">
+
+        <button class="btn btn-primary mt-4" type="submit" [disabled]="this.authForm.invalid">{{ isLogin ? 'Login' : 'Sign Up'}}</button>
+        <button class="btn btn-primary mt-4 ms-3" type="button" (click)="onSwitchMode()">{{ !isLogin ? 'Switch To Login' : 'Switch To Sign Up'}}</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="row mt-3">
+  <div class="col-12">
+    <a class="btn btn-success" *ngIf="isAuth" (click)="addNewRecipe()">New Recipe</a>
+  </div>
+</div>
+<hr *ngIf="isAuth">
+<div class="row">
+  <div class="col-12">
+    <app-recipe-item></app-recipe-item>
+  </div>
+</div>

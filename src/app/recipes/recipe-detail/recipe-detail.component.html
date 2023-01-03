@@ -1,0 +1,38 @@
+<div  *ngIf="displayDetails">
+  <div class="row mt-3">
+    <div class="col-12 w-75">
+      <img [src]="getRecipe.imgPath" class="img-fluid" alt="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h1>{{getRecipe.name}}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Manage Recipe
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" (click)="sendToSL(getRecipe.ingredients)">Add To Shopping List</a></li>
+          <li><a class="dropdown-item" [routerLink]="['edit']">Edit Recipe</a></li>
+          <li><a class="dropdown-item" *ngIf="isAuth" (click)="deleteRecipe()">Delete Recipe</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      {{getRecipe.description}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      Ingredients
+      <!-- <div *ngFor="let ing of ingredients">{{ing.name}}</div> -->
+      <div *ngFor="let ing of getRecipe.ingredients">{{ing.name}}</div>
+    </div>
+  </div>
+</div>

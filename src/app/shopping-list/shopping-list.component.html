@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10">
+      <app-shopping-edit></app-shopping-edit>
+      <hr>
+      <div class="list-group">
+        <a (click)="editSL(i)" class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let ingredient of ingredients , let i = index">
+          {{ingredient.name}}
+          <span class="badge bg-primary rounded-pill">{{ingredient.amount}}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

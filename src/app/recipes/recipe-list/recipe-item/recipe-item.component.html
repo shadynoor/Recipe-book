@@ -1,0 +1,15 @@
+<div class="row" *ngFor="let recipe of getRecipes , let id = index">
+  <div class="col-12 list-group">
+    <a class="list-group-item" [routerLink]="[id]" routerLinkActive="active" (click)="sendTheRecipe(recipe)">
+      <div class="row">
+        <div class="col-8 m-auto">
+          <h4 class="list-group-item-heading m-auto">{{recipe.name}}</h4>
+          <p class="list-group-item-text m-auto">{{recipe.description}}</p>
+        </div>
+        <div class="col-4 m-auto">
+          <img alt="" class="img-fluid float-end clearfix" [src] = "recipe.imgPath" style="max-height: 50px;">
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
